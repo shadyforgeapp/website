@@ -8,8 +8,9 @@ import team_construction from '/public/images/WIP construction.png'
 //for footer component
 import logo from '/public/images/initialslogo.png'
 
-import Typewriter from 'typewriter-effect';
 import { ClipboardListIcon } from '@heroicons/react/solid'
+import Typewriter from 'typewriter-effect';
+import * as Panelbear from "@panelbear/panelbear-js"
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
           <div className="text-center py-[8%]">
             <Link href={'https://bit.ly/3A7uo2s'}>
               <a>
-                <button className="button text-lg sm:text-xl bg-chocy text-beige hover:opacity-[0.85]">Join the waitlist
+                <button onClick={() => Panelbear.track('SignupWaitlistLandingHero')} className="button text-lg sm:text-xl bg-chocy text-beige hover:opacity-[0.85]">Join the waitlist
                   <ClipboardListIcon className="h-[18px] ml-[6px]" />
                 </button>
               </a>
