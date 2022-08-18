@@ -6,7 +6,7 @@ export default function Navbar() {
     return (
         <div className="py-4 border-b-2 rounded-lg shadow-xl bg-beige">
             <div className="sm:flex sm:px-[10%] sm:justify-between">
-                <h1 className="text-lg md:text-2xl font-semibold text-chocy hover:opacity-[0.85] sm:text-left text-center">
+                <h1 className="text-lg md:text-2xl font-semibold text-chocy hover:opacity-[0.85] sm:text-left text-center my-auto">
                     <Link href={'/'}>
                         <a>shadyforge events</a>
                     </Link>
