@@ -55,7 +55,7 @@ export default function Home() {
             </button>
           </div>
           <div className="p-5 m-5 rounded-lg shadow-lg bg-chocy ">
-            <h1 className="text-2xl font-semibold text-center sm:text-3xl text-beige sm:text-left">We've organized</h1>
+            <h1 className="text-2xl font-semibold text-center sm:text-3xl text-beige sm:text-left">We&apos;ve organized</h1>
             <div className="grid gap-5 my-5 sm:grid-cols-3">
               <div className="flex flex-col p-5 duration-300 rounded-lg shadow-lg bg-beige hover:scale-105">
                 <h1 className="py-2 font-semibold text-center text-md text-chocy">23 IRL events</h1>
