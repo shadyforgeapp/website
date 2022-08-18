@@ -1,9 +1,10 @@
 import Head from "next/head";
 import Image from 'next/future/image'
+import Link from "next/link";
+
 import calendar from '/public/images/calendar.png'
 import guests from '/public/images/guest group.png'
 import team_construction from '/public/images/WIP construction.png'
-
 //for footer component
 import logo from '/public/images/initialslogo.png'
 
@@ -50,9 +51,13 @@ export default function Home() {
             Look fab 💅🏾 while do you do it all. We work with event planners to make event prep, team delegation, and vendor tracking easier than ever before.
           </h2>
           <div className="text-center py-[8%]">
-            <button className="button text-lg sm:text-xl bg-chocy text-beige hover:opacity-[0.85]">Join the waitlist
-              <ClipboardListIcon className="h-[18px] ml-[6px]" />
-            </button>
+            <Link href={'https://bit.ly/3A7uo2s'}>
+              <a>
+                <button className="button text-lg sm:text-xl bg-chocy text-beige hover:opacity-[0.85]">Join the waitlist
+                  <ClipboardListIcon className="h-[18px] ml-[6px]" />
+                </button>
+              </a>
+            </Link>
           </div>
           <div className="p-5 m-5 rounded-lg shadow-lg bg-chocy ">
             <h1 className="text-2xl font-semibold text-center sm:text-3xl text-beige sm:text-left">We&apos;ve organized</h1>

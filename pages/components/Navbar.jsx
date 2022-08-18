@@ -11,10 +11,14 @@ export default function Navbar() {
                         <a>shadyforge events</a>
                     </Link>
                 </h1>
-                <button className="button text-xs sm:text-lg bg-chocy text-beige hover:opacity-[0.85] hidden sm:flex">
-                    Ditch your scheduling spreadsheet
-                    <ArrowSmRightIcon className="h-[18px]" />
-                </button>
+                <Link href={'https://bit.ly/3A7uo2s'}>
+                    <a>
+                        <button className="button text-xs sm:text-lg bg-chocy text-beige hover:opacity-[0.85] hidden sm:flex">
+                            Ditch your scheduling spreadsheet
+                            <ArrowSmRightIcon className="h-[18px]" />
+                        </button>
+                    </a>
+                </Link>
             </div>
         </div>
     )
