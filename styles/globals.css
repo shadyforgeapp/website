@@ -9,4 +9,10 @@
   .buttonWithHover {
   @apply hover:bg-black/5 dark:hover:bg-[#1d1d1d] space-x-2.5 transition-all duration-300 inline-flex items-center justify-center py-2 px-3 rounded-lg shadow-sm font-Lato
   }
+  .primary{
+  @apply bg-chocy text-beige dark:bg-beige dark:text-chocy dark:bg-opacity-70 
+  }
+  .secondary{
+  @apply bg-beige text-chocy dark:bg-chocy dark:text-beige
+  }
 }
