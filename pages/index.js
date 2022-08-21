@@ -49,7 +49,7 @@ export default function Home() {
           </h1>
           <h2 className="text-center text-md mx-[10%]
           sm:max-w-lg md:max-w-2xl sm:px-0 text-lg sm:text-xl opacity-75">
-            Look fab 💅🏾 while do you do it all. We work with event planners to make event prep, team delegation, and vendor tracking easier than ever before.
+            Look fab 💅🏾 while you do it all. Our scheduling & management tool makes event prep, team delegation, and vendor tracking easier than ever before for event planners.
           </h2>
           <div className="text-center py-[8%]">
             <Link href={'https://bit.ly/3A7uo2s'}>
