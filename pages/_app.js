@@ -2,8 +2,8 @@ import '../styles/globals.css'
 import Head from 'next/head'
 import { usePanelbear } from '@panelbear/panelbear-nextjs';
 
-function MyApp({ Component, pageProps }) {
-  usePanelbear('7gYP029r3oW', {
+function MyApp({ Component, pageProps, panelbearid }) {
+  usePanelbear(panelbearid, {
     debug: false
   })
 
@@ -15,6 +15,10 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </>
   )
+}
+
+MyApp.getInitialProps = async () => {
+  return { panelbearid: process.env.PANELBEAR_ID }
 }
 
 export default MyApp
