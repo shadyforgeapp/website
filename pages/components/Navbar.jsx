@@ -16,9 +16,9 @@ export default function Navbar() {
                     </h1>
                     <Link href={'https://bit.ly/3A7uo2s'}>
                         <a className="my-auto">
-                            <button className="button md:text-md lg:text-lg xl:text-2xl primary hover:opacity-[0.85] hidden sm:hidden md:flex">
+                            <button className="button md:text-sm lg:text-lg xl:text-2xl primary hover:opacity-[0.85] hidden sm:hidden md:flex">
                                 Ditch your scheduling spreadsheet
-                                <ArrowSmRightIcon className="h-[18px]" />
+                                <ArrowSmRightIcon className="h-[18px] md:h-[18px] lg:h-[24px]" />
                             </button>
                         </a>
                     </Link>

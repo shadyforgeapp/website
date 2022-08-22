@@ -7,8 +7,8 @@ import { IoPhonePortrait } from 'react-icons/io5'
 
 export default function Footer() {
     return (
-        <div className="py-5 bg-black border-b-2 rounded-lg shadow-xl primary">
-            <div className="whiteSpaceMargins md:px-5">
+        <div className="py-5 border-b-2 rounded-lg shadow-xl primary">
+            <div className="mx-16 whiteSpaceMargins">
                 {/* <Image src={logo} className='w-[48px]' alt='shadyforge logo'></Image> */}
                 <h1 className="text-5xl navAndFooterFont bronzeSmolderGradient hover:opacity-[0.85] text-left">
                     <Link href={'/'}>

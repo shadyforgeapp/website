@@ -47,13 +47,15 @@ export default function Home() {
               }}
             />
           </h1>
-          <h2 className="mx-auto text-lg text-center opacity-75 text-md sm:max-w-lg md:max-w-3xl sm:px-0 sm:text-xl">
-            Look fab 💅🏾 while you do it all. Our scheduling & management tool makes event prep, team delegation, and vendor tracking easier than ever before for event planners.
-          </h2>
+          <div className="mx-16">
+            <h2 className="mx-auto text-lg text-center opacity-75 text-md sm:max-w-lg md:max-w-3xl sm:px-0 sm:text-xl">
+              Look fab 💅🏾 while you do it all. Our scheduling & management tool makes event prep, team delegation, and vendor tracking easier than ever before for event planners.
+            </h2>
+          </div>
           <div className="text-center py-[8%]">
             <Link href={'https://bit.ly/3A7uo2s'}>
               <a>
-                <button onClick={() => Panelbear.track('SignupWaitlistLandingHero')} className="button text-lg sm:text-xl primary hover:opacity-[0.85]">Join the waitlist
+                <button onClick={() => Panelbear.track('SignupWaitlistLandingHero')} className="button text-lg sm:text-xl primary hover:opacity-[0.85] ">Join the waitlist
                   <ClipboardListIcon className="h-[18px] ml-[6px]" />
                 </button>
               </a>

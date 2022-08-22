@@ -11,7 +11,8 @@ module.exports = {
       },
       colors: {
         'chocy': '#4C3635',
-        'beige': '#FFF7E6'
+        'beige': '#FFF7E6',
+        'singe': '#E28C00'
       }
     },
   },
