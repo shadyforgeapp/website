@@ -21,7 +21,7 @@ export default function Home() {
       </Head>
 
       <main className="py-5 secondary">
-        <div className="sm:mx-[5%] md:mx-[10%] lg:mx-[20%]">
+        <div className="whiteSpaceMargins">
           <h1 className="py-5 text-4xl font-bold tracking-tight text-center sm:tracking-normal sm:text-6xl sm:max-w-2xl sm:mx-auto">
             Never stress about
             <Typewriter
@@ -47,8 +47,7 @@ export default function Home() {
               }}
             />
           </h1>
-          <h2 className="text-center text-md mx-[10%]
-          sm:max-w-lg md:max-w-2xl sm:px-0 text-lg sm:text-xl opacity-75">
+          <h2 className="mx-auto text-lg text-center opacity-75 text-md sm:max-w-lg md:max-w-3xl sm:px-0 sm:text-xl">
             Look fab 💅🏾 while you do it all. Our scheduling & management tool makes event prep, team delegation, and vendor tracking easier than ever before for event planners.
           </h2>
           <div className="text-center py-[8%]">
@@ -60,19 +59,19 @@ export default function Home() {
               </a>
             </Link>
           </div>
-          <div className="p-5 m-5 rounded-lg shadow-lg primary ">
+          <div className="p-5 m-16 rounded-lg shadow-lg md:m-5 primary ">
             <h1 className="text-2xl font-semibold text-center sm:text-3xl sm:text-left">We&apos;ve organized</h1>
             <div className="grid gap-5 my-5 sm:grid-cols-3">
-              <div className="flex flex-col p-5 duration-300 rounded-lg shadow-lg secondary hover:scale-105">
-                <h1 className="py-2 font-semibold text-center text-md ">23 IRL events</h1>
+              <div className="card">
+                <h1 className="cardCaption">23 IRL events</h1>
                 <Image src={calendar} alt='calendar' className="mx-auto w-[40%] sm:w-[60%]" />
               </div>
-              <div className="flex flex-col p-5 duration-300 rounded-lg shadow-lg secondary hover:scale-105">
-                <h1 className="py-2 font-semibold text-center text-md ">for 1156 Guests</h1>
+              <div className="card">
+                <h1 className="cardCaption">for 1156 Guests</h1>
                 <Image src={guests} alt='guests' className="mx-auto w-[40%] sm:w-[60%]" />
               </div>
-              <div className="flex flex-col p-5 duration-300 rounded-lg shadow-lg secondary hover:scale-105">
-                <h1 className="py-2 font-semibold text-center text-md ">{`with < 25 Team members`}</h1>
+              <div className="card">
+                <h1 className="cardCaption">{`with < 25 Team members`}</h1>
                 <Image src={team_construction} alt='team size' className="mx-auto w-[40%] sm:w-[60%]" />
               </div>
             </div>

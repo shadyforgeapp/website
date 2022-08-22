@@ -5,7 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         Inter: ['"Inter"', 'sans-serif'],
-        Lato: ['"Lato"', 'sans-serif']
+        Lato: ['"Lato"', 'sans-serif'],
+        PotraE0Ye: ["Potra-E0Ye"],
+        Veselka4F: ["Veselka4F"],
       },
       colors: {
         'chocy': '#4C3635',

@@ -1,18 +1,18 @@
 import Link from "next/link"
-import Image from 'next/future/image'
+// import Image from 'next/future/image'
 
-import logo from '/public/images/initialslogo.png'
+// import logo from '/public/images/initialslogo.png'
 import { MailIcon } from '@heroicons/react/solid'
 import { IoPhonePortrait } from 'react-icons/io5'
 
 export default function Footer() {
     return (
-        <div className="py-4 border-b-2 rounded-lg shadow-xl primary bg-black sm:px-[10%]">
-            <div className="p-4">
-                <Image src={logo} className='w-[48px]' alt='shadyforge logo'></Image>
-                <h1 className="text-2xl font-semibold hover:opacity-[0.85] text-left">
+        <div className="py-5 bg-black border-b-2 rounded-lg shadow-xl primary">
+            <div className="whiteSpaceMargins md:px-5">
+                {/* <Image src={logo} className='w-[48px]' alt='shadyforge logo'></Image> */}
+                <h1 className="text-5xl navAndFooterFont bronzeSmolderGradient hover:opacity-[0.85] text-left">
                     <Link href={'/'}>
-                        <a>shadyforge</a>
+                        <a>Shadyforge</a>
                     </Link>
                 </h1>
                 <div className="flex items-center justify-start">
