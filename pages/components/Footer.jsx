@@ -4,9 +4,8 @@ import { AtSymbolIcon, DevicePhoneMobileIcon } from '@heroicons/reactv2/24/solid
 
 export default function Footer() {
     return (
-        <div className="py-5 border-b-2 rounded-lg shadow-xl primary">
-            <div className="mx-16 whiteSpaceMargins">
-                {/* <Image src={logo} className='w-[48px]' alt='shadyforge logo'></Image> */}
+        <div className="py-5 border-b-2 rounded-lg shadow-xl primary dark:bg-black ">
+            <div className="mx-16 md:whiteSpaceMargins">
                 <h1 className="text-5xl navAndFooterFont bronzeSmolderGradient hover:opacity-[0.85] text-left">
                     <Link href={'/'}>
                         <a>Shadyforge</a>

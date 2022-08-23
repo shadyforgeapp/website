@@ -53,7 +53,7 @@ export default function Home() {
           <div className="text-center py-[8%]">
             <Link href={'https://bit.ly/3A7uo2s'}>
               <a>
-                <button onClick={() => Panelbear.track('SignupWaitlistLandingHero')} className="button text-lg sm:text-xl primary hover:opacity-[0.85] ">Join the waitlist
+                <button onClick={() => Panelbear.track('SignupWaitlist_LandingHero')} className="button text-lg sm:text-xl primary hover:opacity-[0.85] ">Join the waitlist
                   <ClipboardListIcon className="h-[18px] ml-[6px]" />
                 </button>
               </a>
