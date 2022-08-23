@@ -5,10 +5,8 @@ import Link from "next/link";
 import calendar from '/public/images/calendar.png'
 import guests from '/public/images/guest group.png'
 import team_construction from '/public/images/WIP construction.png'
-//for footer component
-import logo from '/public/images/initialslogo.png'
 
-import { ClipboardListIcon } from '@heroicons/react/solid'
+import { ClipboardListIcon } from '@heroicons/reactv1/solid'
 import Typewriter from 'typewriter-effect';
 import * as Panelbear from "@panelbear/panelbear-js"
 

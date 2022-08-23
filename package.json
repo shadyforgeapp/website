@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
+    "@heroicons/reactv1": "npm:@heroicons/react@^1.0.6",
+    "@heroicons/reactv2": "npm:@heroicons/react@^2.0.1",
     "@panelbear/panelbear-nextjs": "^1.0.4",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.4.0",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

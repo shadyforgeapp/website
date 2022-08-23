@@ -1,9 +1,6 @@
 import Link from "next/link"
-// import Image from 'next/future/image'
 
-// import logo from '/public/images/initialslogo.png'
-import { MailIcon } from '@heroicons/react/solid'
-import { IoPhonePortrait } from 'react-icons/io5'
+import { AtSymbolIcon, DevicePhoneMobileIcon } from '@heroicons/reactv2/24/solid'
 
 export default function Footer() {
     return (
@@ -18,10 +15,14 @@ export default function Footer() {
                 <div className="flex items-center justify-start">
                     <div className="flex gap-2 hover:opacity-[0.85]">
                         <Link href={'mailto:hi@shadyforge.com'}>
-                            <a><MailIcon className="h-[16px] my-auto flex items-center justify-center" /></a>
+                            <a>
+                                <AtSymbolIcon className="h-[20px] my-auto flex items-center justify-center" />
+                            </a>
                         </Link>
                         <Link href={'tel:209-877-5227'}>
-                            <a><IoPhonePortrait className="h-[16px] my-auto flex items-center justify-center" /></a>
+                            <a>
+                                <DevicePhoneMobileIcon className="h-[22px] my-auto flex items-center justify-center" />
+                            </a>
                         </Link>
                     </div>
                 </div>
