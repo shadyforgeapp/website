@@ -1,65 +1,86 @@
-import Link from "next/link";
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { CreatePost } from "~/app/_components/create-post";
-import { api } from "~/trpc/server";
+const projects = [
+  {
+    name: 'daydule',
+    description: 'day-of schedules for planners',
+    url: 'https://daydule.com',
+    logo: '/daydule.svg',
+    model: 'b2b',
+    year: '2023',
+  },
+  {
+    name: 'keyzz',
+    description: 'api key billing & mgmt',
+    url: 'https://keyzz.dev',
+    logo: '/keyzz.svg',
+    model: 'b2c',
+    year: '2023',
+  },
+]
 
 export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
-            </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-2xl text-white">
-            {hello ? hello.greeting : "Loading tRPC query..."}
+    <main className='font-editorialul mx-3 min-h-screen max-w-full items-center px-6 pb-16'>
+      <div className='rounded-b-sm border-b-[1.5px] border-b-stone-400 border-opacity-20 py-4'>
+        <h1 className=' text-xl text-stone-600'>shadyforge</h1>
+        <h2 className='tracking-tight text-stone-400 '>by mani & friends</h2>
+      </div>
+      <h2 className='py-4 text-lg'>products</h2>
+      <div className='flex gap-6'>
+        <div className='w-64'>
+          <div className='flex h-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
+            <Link href={'https://plzreply.com'}>
+              <h2 className='font-fonty glowing-text whitespace-nowrap text-3xl text-[#00b0c8]'>
+                Plz Reply
+              </h2>
+            </Link>
+          </div>
+          <p className='py-[6px] text-xs text-stone-400'>
+            2023 &nbsp;with{' '}
+            <Link className='underline' href={'https://twitter.com/eabnelson'}>
+              erik
+            </Link>
           </p>
         </div>
-
-        <CrudShowcase />
+        {projects
+          .slice()
+          .reverse()
+          .map((project) => (
+            <div key={project.name} className='w-64'>
+              <div className='flex h-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
+                <Link href={project.url}>
+                  <Image
+                    className='w-24'
+                    alt={`${project.name} logo`}
+                    src={project.logo}
+                    width={96}
+                    height={24}
+                  />
+                </Link>
+              </div>
+              <p className='py-[6px] text-xs text-stone-400'>{project.year}</p>
+            </div>
+          ))}
+      </div>
+      <h2 className='py-4 text-lg'>projects</h2>
+      <div className='flex gap-6'>
+        <div className='w-64'>
+          <div className='flex h-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
+            <Link href={'https://github.com/mkandan/gae-pytube'}>
+              <h2 className='font-sans text-3xl'>dubdubs</h2>
+            </Link>
+          </div>
+          <p className='py-[6px] text-xs text-stone-400'>2023</p>
+        </div>
+      </div>
+      <h2 className='py-4 text-lg'>links</h2>
+      <div className='tracking-tight text-stone-400'>
+        <Link href={'https://twitter.com/man1_kandan'}>twitter</Link>
+        <br />
+        <Link href={'https://github.com/mkandan'}>github</Link>
       </div>
     </main>
-  );
-}
-
-async function CrudShowcase() {
-  const latestPost = await api.post.getLatest.query();
-
-  return (
-    <div className="w-full max-w-xs">
-      {latestPost ? (
-        <p className="truncate">Your most recent post: {latestPost.name}</p>
-      ) : (
-        <p>You have no posts yet.</p>
-      )}
-
-      <CreatePost />
-    </div>
-  );
+  )
 }

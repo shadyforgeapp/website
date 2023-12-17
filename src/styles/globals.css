@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Editorial';
+    src: url('/editorial.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'EditorialUltraLight';
+    src: url('/editorialul.otf') format('opentype');
+}
+
+
+/* plzreply */
+@font-face {
+	font-family: 'Fonty';
+	src: url('/fonty.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@keyframes glow {
+	0%,
+	100% {
+		text-shadow: -1px -1px 0 #1b3f3f, 1px -1px 0 #1b3f3f, -1px 1px 0 #1b3f3f,
+			1px 1px 0 #1b3f3f, 0 0 5px #76ff50, 0 0 10px #76ff50;
+	}
+	50% {
+		text-shadow: -1px -1px 0 #1b3f3f, 1px -1px 0 #1b3f3f, -1px 1px 0 #1b3f3f,
+			1px 1px 0 #1b3f3f, 0 0 10px #76ff50, 0 0 20px #76ff50;
+	}
+}
+.glowing-text {
+	text-shadow: -1px -1px 0 #1b3f3f, 1px -1px 0 #1b3f3f, -1px 1px 0 #1b3f3f,
+		1px 1px 0 #1b3f3f, 0 0 5px #76ff50, /* glow size */ 0 0 10px #76ff50; /* glow size */
+	animation: glow 3.2s ease-in-out infinite;
+}

@@ -7,6 +7,9 @@ export default {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        editorial: ["Editorial", ...fontFamily.sans],
+        editorialul: ["EditorialUltraLight", ...fontFamily.sans],
+        fonty: ['Fonty', 'sans-serif'],
       },
     },
   },
