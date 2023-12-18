@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 const projects = [
   {
@@ -29,82 +35,103 @@ export default async function Home() {
         <h2 className='tracking-tight text-stone-400 '>by mani & friends</h2>
       </div>
       <h2 className='py-4 text-lg'>products</h2>
-      <ScrollArea className='whitespace-nowrap'>
-        <div className='flex w-max space-x-6'>
-          <div>
-            <div className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
-              <div className='rounded-md'>
-                <Link href={'https://plzreply.com'}>
-                  <h2 className='font-fonty glowing-text whitespace-nowrap text-3xl text-[#00b0c8]'>
-                    Plz Reply
-                  </h2>
-                </Link>
-              </div>
-            </div>
-            <p className='py-[6px] pl-[10px] text-xs text-stone-400'>
-              2023 &nbsp;with{' '}
-              <Link
-                className='underline'
-                href={'https://twitter.com/eabnelson'}
-              >
-                erik
-              </Link>
-            </p>
-          </div>
-
-          {projects
-            .slice()
-            .reverse()
-            .map((project) => (
-              <div>
-                <div
-                  key={project.name}
-                  className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'
-                >
+      <TooltipProvider>
+        <ScrollArea className='whitespace-nowrap'>
+          <div className='flex w-max space-x-6'>
+            <Tooltip>
+              <TooltipTrigger>
+                <div className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
                   <div className='rounded-md'>
-                    <Link href={project.url}>
-                      <Image
-                        className='w-24'
-                        alt={`${project.name} logo`}
-                        src={project.logo}
-                        width={96}
-                        height={24}
-                      />
+                    <Link href={'https://plzreply.com'}>
+                      <h2 className='font-fonty glowing-text whitespace-nowrap text-3xl text-[#00b0c8]'>
+                        Plz Reply
+                      </h2>
                     </Link>
                   </div>
                 </div>
                 <p className='py-[6px] pl-[10px] text-xs text-stone-400'>
-                  {project.year}
+                  2023 &nbsp;with{' '}
+                  <Link
+                    className='underline'
+                    href={'https://twitter.com/eabnelson'}
+                  >
+                    erik
+                  </Link>
                 </p>
-              </div>
-            ))}
-        </div>
-        <ScrollBar orientation='horizontal' />
-      </ScrollArea>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className='px-[8px] py-[px]'>send messages to space</p>
+              </TooltipContent>
+            </Tooltip>
 
-      <h2 className='pt-12 pb-4 text-lg'>projects</h2>
-      <ScrollArea className='whitespace-nowrap'>
-        <div className='flex w-max space-x-6'>
-          <div>
-            <div className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
-              <div className='rounded-md'>
-                <Link href={'https://github.com/mkandan/gae-pytube'}>
-                  <h2 className='font-sans text-3xl'>dubdubs</h2>
-                </Link>
-              </div>
-            </div>
-            <p className='py-[6px] pl-[12px] text-xs text-stone-400'>2023</p>
+            {projects
+              .slice()
+              .reverse()
+              .map((project) => (
+                <div>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <div
+                        key={project.name}
+                        className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'
+                      >
+                        <div className='rounded-md'>
+                          <Link href={project.url}>
+                            <Image
+                              className='w-24'
+                              alt={`${project.name} logo`}
+                              src={project.logo}
+                              width={96}
+                              height={24}
+                            />
+                          </Link>
+                        </div>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p className='px-[8px] py-[px]'>{project.description}</p>
+                    </TooltipContent>
+                    <p className='py-[6px] pl-[10px] text-xs text-stone-400'>
+                      {project.year}
+                    </p>
+                  </Tooltip>
+                </div>
+              ))}
           </div>
-        </div>
-        <ScrollBar orientation='horizontal' />
-      </ScrollArea>
+          <ScrollBar orientation='horizontal' />
+        </ScrollArea>
 
-      <h2 className='py-4 text-lg'>links</h2>
-      <div className='tracking-tight text-stone-400'>
-        <Link href={'https://twitter.com/man1_kandan'}>twitter</Link>
-        <br />
-        <Link href={'https://github.com/mkandan'}>github</Link>
-      </div>
+        <h2 className='pb-4 pt-12 text-lg'>projects</h2>
+          <ScrollArea className='whitespace-nowrap'>
+            <div className='flex w-max space-x-6'>
+              <Tooltip>
+              <TooltipTrigger>
+              <div>
+                <div className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
+                  <div className='rounded-md'>
+                    <Link href={'https://github.com/mkandan/gae-pytube'}>
+                      <h2 className='font-sans text-3xl'>dubdubs</h2>
+                    </Link>
+                  </div>
+                </div>
+                <p className='py-[6px] pl-[12px] text-xs text-stone-400'>2023</p>
+              </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className='px-[8px] py-[px]'>ai-generated youtube captions</p>
+              </TooltipContent>
+              </Tooltip>
+            </div>
+            <ScrollBar orientation='horizontal' />
+          </ScrollArea>
+
+        <h2 className='py-4 text-lg'>links</h2>
+        <div className='tracking-tight text-stone-400'>
+          <Link href={'https://twitter.com/man1_kandan'}>twitter</Link>
+          <br />
+          <Link href={'https://github.com/mkandan'}>github</Link>
+        </div>
+      </TooltipProvider>
     </main>
   )
 }
