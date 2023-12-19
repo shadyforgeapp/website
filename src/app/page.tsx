@@ -110,7 +110,7 @@ export default async function Home() {
                 <div className='flex h-64 w-64 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
                   <div className='rounded-md'>
                     <Link href={'https://github.com/mkandan/gae-pytube'}>
-                      <h2 className='font-sans text-3xl'>dubdubs</h2>
+                      <h2 className='font-sans text-3xl'>you-cap</h2>
                     </Link>
                   </div>
                 </div>
