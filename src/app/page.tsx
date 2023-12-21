@@ -68,7 +68,7 @@ const content = [
 		socials: [{ name: 'instagram', link: 'https://instagram.com/toomanifits' }],
 		year_start: 2022,
 		year_end: null,
-		preview_file: '/dress.jpg',
+		preview_file: '/dress.png',
 		preview_file_landscape_orientation: false,
 		preview_file_url:
 			'https://www.instagram.com/p/Cmvj3tzOOja/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA=='
