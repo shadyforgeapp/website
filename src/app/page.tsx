@@ -7,7 +7,7 @@ import {
 	HoverCardTrigger
 } from '@/components/ui/hover-card'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
-import { Info, CalendarDays } from 'lucide-react'
+import { Info, CalendarDays, GitCommit } from 'lucide-react'
 import { env } from '~/env'
 
 const projects = [
@@ -18,16 +18,22 @@ const projects = [
 		logo: '/daydule.svg',
 		model: 'b2b',
 		year_start: 2023,
-		year_end: 2023
+		year_end: 2023,
+		github_owner: 'shadyforgeapp',
+		github_repo: 'daydule',
+		github_personal_access_token: env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN
 	},
 	{
 		name: 'keyzz',
-		description: 'api key billing & mgmt',
+		description: 'api key spend & management',
 		url: 'https://keyzz.dev',
 		logo: '/keyzz.svg',
 		model: 'b2c',
 		year_start: 2023,
-		year_end: 2023
+		year_end: 2023,
+		github_owner: 'shadyforgeapp',
+		github_repo: 'keyzz',
+		github_personal_access_token: env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN
 	}
 ]
 
@@ -105,33 +111,39 @@ interface Contributor {
 	}
 }
 
-export default async function Home() {
+export async function getGithubRepoStats(
+	GithubOwner: string,
+	GithubRepo: string,
+	GithubPersonalAccessToken: string
+) {
 	const response = await fetch(
-		'https://api.github.com/repos/plzreply/plzreply-next/stats/contributors',
+		`https://api.github.com/repos/${GithubOwner}/${GithubRepo}/stats/contributors`,
 		{
 			headers: {
-				Authorization: `Bearer ${env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+				Authorization: `Bearer ${GithubPersonalAccessToken}`,
 				Accept: 'application/vnd.github.v3+json'
 			}
 		}
 	)
 
-	const repostats: Contributor[] = await response.json() as Contributor[]
-	console.log(repostats)
+	if (response.ok) {
+		const repostats: Contributor[] = (await response.json()) as Contributor[]
+		const targetLogin = 'mkandan'
 
-	const targetLogin = 'mkandan'
+		const targetAuthor = repostats.find(
+			(item) => item.author.login === targetLogin
+		)
 
-	const targetAuthor = repostats.find(
-		(item) => item.author.login === targetLogin
-	)
-
-	if (targetAuthor) {
-		const totalCommits = targetAuthor.total
-		console.log(`Total commits for ${targetLogin}: ${totalCommits}`)
-	} else {
-		console.log(`Author with login ${targetLogin} not found.`)
+		if (targetAuthor) {
+			const totalCommits = targetAuthor.total
+			return totalCommits
+		} else {
+			return 0
+		}
 	}
+}
 
+export default async function Home() {
 	return (
 		<main className='max-w-full items-center px-6 pb-16 font-editorialul'>
 			<div className='rounded-b-sm border-b-[1.5px] border-b-stone-400 border-opacity-20 py-4'>
@@ -180,6 +192,17 @@ export default async function Home() {
 													started 11/13/2023
 												</span>
 											</div>
+											<div className='flex items-center pt-2'>
+												<GitCommit className='mr-2 h-4 w-4 opacity-70' />{' '}
+												<span className='text-xs text-stone-400'>
+													{getGithubRepoStats(
+														'plzreply',
+														'plzreply-next',
+														env.GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN
+													)}{' '}
+													commits
+												</span>
+											</div>
 										</div>
 									</div>
 								</HoverCardContent>
@@ -210,6 +233,42 @@ export default async function Home() {
 									<p className='py-[6px] pl-[10px] text-xs text-stone-400'>
 										{project.year_start}
 									</p>
+									<HoverCard>
+										<HoverCardTrigger>
+											<Info className='h-3 w-3 text-stone-400 hover:text-stone-600' />
+										</HoverCardTrigger>
+										<HoverCardContent className='border-1 z-50 border-stone-400 bg-white p-3 text-sm text-stone-600 shadow-lg'>
+											<div className='flex justify-between space-x-4 font-sans'>
+												<Avatar className='h-[40px] w-[40px]'>
+													<AvatarImage src={project.logo} />
+													<AvatarFallback>
+														{project.name.substring(0, 2)}
+													</AvatarFallback>
+												</Avatar>
+												<div className='space-y-1'>
+													<h4 className='font-semibold'>{project.name}</h4>
+													<p className=''>{project.description}</p>
+													<div className='flex items-center pt-2'>
+														<CalendarDays className='mr-2 h-4 w-4 opacity-70' />{' '}
+														<span className='text-xs text-stone-400'>
+															started {project.year_start}
+														</span>
+													</div>
+													<div className='flex items-center pt-2'>
+														<GitCommit className='mr-2 h-4 w-4 opacity-70' />{' '}
+														<span className='text-xs text-stone-400'>
+															{getGithubRepoStats(
+																project.github_owner,
+																project.github_repo,
+																project.github_personal_access_token
+															)}{' '}
+															commits
+														</span>
+													</div>
+												</div>
+											</div>
+										</HoverCardContent>
+									</HoverCard>
 								</div>
 							</div>
 						))}
