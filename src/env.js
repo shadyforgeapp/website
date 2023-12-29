@@ -8,6 +8,8 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN: z.string(),
+    GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN: z.string(),
   },
 
   /**
@@ -25,6 +27,8 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN,
+    GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
