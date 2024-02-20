@@ -18,6 +18,7 @@ const projects = [
 		url: 'https://daydule.com',
 		logo: '/daydule.svg',
 		model: 'b2b',
+		collab: '',
 		year_start: 2023,
 		year_end: 2023,
 		github_owner: 'shadyforgeapp',
@@ -30,10 +31,24 @@ const projects = [
 		url: 'https://keyzz.dev',
 		logo: '/keyzz.svg',
 		model: 'b2c',
+		collab: '',
 		year_start: 2023,
 		year_end: 2023,
 		github_owner: 'shadyforgeapp',
 		github_repo: 'keyzz',
+		github_personal_access_token: env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN
+	},
+	{
+		name: 'palx',
+		description: 'color palette generator',
+		url: 'https://palx.design',
+		logo: '/palx.png',
+		model: 'b2c',
+		collab: 'Peter',
+		year_start: 2024,
+		year_end: 2024,
+		github_owner: 'shadyforgeapp',
+		github_repo: 'palx',
 		github_personal_access_token: env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN
 	}
 ]
@@ -90,6 +105,74 @@ export default async function Home() {
 			<h2 className='py-4 text-lg'>products</h2>
 			<ScrollArea className='whitespace-nowrap'>
 				<div className='flex w-max space-x-6'>
+					{projects
+						.filter((project) => project.year_start > 2023)
+						.slice()
+						.reverse()
+						.map((project) => (
+							<div key={project.name}>
+								<Link href={project.url}>
+									<div className='flex h-52 w-52 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
+										<div className='rounded-md'>
+											<Image
+												className='h-auto w-auto'
+												alt={`${project.name} logo`}
+												src={project.logo}
+												width={96}
+												height={24}
+												priority
+											/>
+										</div>
+									</div>
+								</Link>
+								<div className='mr-2 flex items-center justify-between'>
+									<p className='py-[6px] pl-[10px] text-xs text-stone-400'>
+										{`${project.year_start} ${
+											project.collab == ''
+												? ''
+												: 'with ' + project.collab.toLocaleLowerCase()
+										}`}
+									</p>
+									<HoverCard>
+										<HoverCardTrigger>
+											<Info className='h-3 w-3 text-stone-400 hover:text-stone-600' />
+										</HoverCardTrigger>
+										<HoverCardContent className='border-1 z-50 border-stone-400 bg-white p-3 text-sm text-stone-600 shadow-lg'>
+											<div className='flex justify-between space-x-4 font-sans'>
+												<Avatar className='h-[40px] w-[40px]'>
+													<AvatarImage src={project.logo} />
+													<AvatarFallback>
+														{project.name.substring(0, 2)}
+													</AvatarFallback>
+												</Avatar>
+												<div className='space-y-1'>
+													<h4 className='font-semibold'>{project.name}</h4>
+													<p className=''>{project.description}</p>
+													<div className='flex items-center pt-2'>
+														<CalendarDays className='mr-2 h-4 w-4 opacity-70' />{' '}
+														<span className='text-xs text-stone-400'>
+															started {project.year_start}
+														</span>
+													</div>
+													<div className='flex items-center pt-2'>
+														<GitCommit className='mr-2 h-4 w-4 opacity-70' />{' '}
+														<span className='text-xs text-stone-400'>
+															{getGithubRepoStats(
+																project.github_owner,
+																project.github_repo,
+																project.github_personal_access_token
+															)}{' '}
+															commits
+														</span>
+													</div>
+												</div>
+											</div>
+										</HoverCardContent>
+									</HoverCard>
+								</div>
+							</div>
+						))}
+
 					<div>
 						<Link href={'https://plzreply.com'}>
 							<div className='flex h-52 w-52 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
@@ -148,6 +231,7 @@ export default async function Home() {
 					</div>
 
 					{projects
+						.filter((project) => project.year_start <= 2023)
 						.slice()
 						.reverse()
 						.map((project) => (
@@ -168,7 +252,11 @@ export default async function Home() {
 								</Link>
 								<div className='mr-2 flex items-center justify-between'>
 									<p className='py-[6px] pl-[10px] text-xs text-stone-400'>
-										{project.year_start}
+										{`${project.year_start} ${
+											project.collab == ''
+												? ''
+												: 'with ' + project.collab.toLocaleLowerCase()
+										}`}
 									</p>
 									<HoverCard>
 										<HoverCardTrigger>
