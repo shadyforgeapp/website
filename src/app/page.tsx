@@ -16,6 +16,8 @@ const projects = [
 		name: 'daydule',
 		description: 'day-of schedules for planners',
 		url: 'https://daydule.com',
+		fallbackUrl: 'https://daydule-shadyforgeapp-team.vercel.app',
+		domainExpired: false,
 		logo: '/daydule.svg',
 		model: 'b2b',
 		collab: '',
@@ -29,6 +31,8 @@ const projects = [
 		name: 'keyzz',
 		description: 'api key spend & management',
 		url: 'https://keyzz.dev',
+		fallbackUrl: 'https://keyzz-git-main-shadyforgeapp-team.vercel.app',
+		domainExpired: true,
 		logo: '/keyzz.svg',
 		model: 'b2c',
 		collab: '',
@@ -42,6 +46,8 @@ const projects = [
 		name: 'palx',
 		description: 'color palette generator',
 		url: 'https://palx.design',
+		fallbackUrl: 'https://palx.vercel.app',
+		domainExpired: false,
 		logo: '/palx.png',
 		model: 'b2c',
 		collab: 'Peter',
@@ -111,7 +117,7 @@ export default async function Home() {
 						.reverse()
 						.map((project) => (
 							<div key={project.name}>
-								<Link href={project.url}>
+								<Link href={project.domainExpired? project.fallbackUrl:project.url}>
 									<div className='flex h-52 w-52 items-center justify-center rounded-2xl border-[0.25px] border-stone-400 border-opacity-40 bg-stone-50'>
 										<div className='rounded-md'>
 											<Image

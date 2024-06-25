@@ -36,29 +36,43 @@ export async function getGithubRepoStats(
 	GithubRepo: string,
 	GithubPersonalAccessToken: string
 ) {
-	const response = await fetch(
-		`https://api.github.com/repos/${GithubOwner}/${GithubRepo}/stats/contributors`,
-		{
-			headers: {
-				Authorization: `Bearer ${GithubPersonalAccessToken}`,
-				Accept: 'application/vnd.github.v3+json'
+	try {
+		const response = await fetch(
+			`https://api.github.com/repos/${GithubOwner}/${GithubRepo}/stats/contributors`,
+			{
+				headers: {
+					Authorization: `Bearer ${GithubPersonalAccessToken}`,
+					Accept: 'application/vnd.github.v3+json'
+				}
 			}
-		}
-	)
-
-	if (response.ok) {
-		const repostats: Contributor[] = (await response.json()) as Contributor[]
-		const targetLogin = 'mkandan'
-
-		const targetAuthor = repostats.find(
-			(item) => item.author.login === targetLogin
 		)
 
-		if (targetAuthor) {
-			const totalCommits = targetAuthor.total
-			return totalCommits
+		if (response.ok) {
+			const repostats: Contributor[] = await response.json()
+
+			// Check if repostats is an array
+			if (Array.isArray(repostats)) {
+				const targetLogin = 'mkandan'
+				const targetAuthor = repostats.find(
+					(item: Contributor) => item.author.login === targetLogin
+				)
+
+				if (targetAuthor) {
+					const totalCommits = targetAuthor.total
+					return totalCommits
+				} else {
+					return 0 // Author not found
+				}
+			} else {
+				console.error('Unexpected response format:', repostats)
+				return 0 // Unexpected response format
+			}
 		} else {
-			return 0
+			console.error('GitHub API response not OK:', response.status, response.statusText)
+			return 0 // Response not OK
 		}
+	} catch (error) {
+		console.error('Error fetching GitHub repo stats:', error)
+		return 0 // Fetching error
 	}
 }
