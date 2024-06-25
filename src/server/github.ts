@@ -48,6 +48,7 @@ export async function getGithubRepoStats(
 		)
 
 		if (response.ok) {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 			const repostats: Contributor[] = await response.json()
 
 			// Check if repostats is an array
