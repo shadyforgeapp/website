@@ -31,7 +31,7 @@ const projects = [
 		name: 'keyzz',
 		description: 'api key spend & management',
 		url: 'https://keyzz.dev',
-		fallbackUrl: 'https://keyzz-git-main-shadyforgeapp-team.vercel.app',
+		fallbackUrl: 'https://keyzz.vercel.app/',
 		domainExpired: true,
 		logo: '/keyzz.svg',
 		model: 'b2c',
