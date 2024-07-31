@@ -56,6 +56,21 @@ const projects = [
 		github_owner: 'shadyforgeapp',
 		github_repo: 'palx',
 		github_personal_access_token: env.GITHUB_SHADYFOREAPP_PERSONAL_ACCESS_TOKEN
+	},
+	{
+		name: 'greer',
+		description: 'ultralight pack & gear lists',
+		url: 'https://shadyforge.com/greer',
+		fallbackUrl: 'https://shadyforge.com',
+		domainExpired: false,
+		logo: '/greer_nellie.png',
+		model: 'b2c',
+		collab: '',
+		year_start: 2024,
+		year_end: 2024,
+		github_owner: 'mkandan',
+		github_repo: 'greer',
+		github_personal_access_token: env.GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN
 	}
 ]
 
