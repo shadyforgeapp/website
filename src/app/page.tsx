@@ -71,6 +71,21 @@ const projects = [
 		github_owner: 'mkandan',
 		github_repo: 'greer',
 		github_personal_access_token: env.GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN
+	},
+	{
+		name: 'Lock In',
+		description: 'brutally honest motivation',
+		url: 'https://www.instagram.com/lock_in_app/',
+		fallbackUrl: 'https://www.youtube.com/@LockInApp/shorts/',
+		domainExpired: false,
+		logo: '/lockin.png',
+		model: 'b2c',
+		collab: 'Ben',
+		year_start: 2024,
+		year_end: 2024,
+		github_owner: 'mkandan',
+		github_repo: 'Lock-In',
+		github_personal_access_token: env.GITHUB_MKANDAN_PERSONAL_ACCESS_TOKEN
 	}
 ]
 
